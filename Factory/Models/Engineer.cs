@@ -4,7 +4,7 @@ namespace Factory.Models
 {
   public class Engineer
   {
-    public Artist()
+    public Engineer()
     {
       this.JoinEngineerMachine = new HashSet<EngineerMachine>();
     }
