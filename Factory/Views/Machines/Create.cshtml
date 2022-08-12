@@ -10,6 +10,9 @@
   @Html.LabelFor(model => model.MachineName)
   @Html.TextBoxFor(model => model.MachineName)
 
+  @Html.Label("Select Engineer")
+  @Html.DropDownList("EngineerId")
+
   <input type="submit" value="Add new Machine" />
 }
 <hr />
