@@ -5,11 +5,37 @@
 @model Factory.Models.Engineer
 
 <h2>Engineer Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)<h3>
 
-    <hr />
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Engineer Name
+      </th>
+      <th>
+        Machine Licenses
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        @Html.DisplayFor(model => model.EngineerName)
+      </td>
+      <td>
+        @foreach (var join in Model.JoinEngineerMachine)
+        {
+          <li>@join.Machine.MachineName</li>
+        }
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EngineerId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.EngineerId })
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-    <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
-    <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
-    <p>@Html.ActionLink("Back to Engineer List", "Index")</p>
+
+<p>@Html.ActionLink("Back to Engineer List", "Index")</p>
