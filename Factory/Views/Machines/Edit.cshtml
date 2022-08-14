@@ -5,9 +5,10 @@
 @model Factory.Models.Machine
 
 <h2>Edit Machine</h2>
+<hr />
 
 <h4>Edit this Machine: @Html.DisplayFor(model => model.MachineName)</h4>
-
+<div class="wrapper">
 @using (Html.BeginForm())
 {
   <p>Edit this machine's name</p>
@@ -17,10 +18,10 @@
   @Html.EditorFor(model => model.MachineName)
 
   <input type="submit" value="Save" />
-
+<hr />
   <p>Add a licensed engineer to repair this machine</p>
-  <p>@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId })</p>
-
+  @Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId })
+<hr />
   <p>Delete an Engineer from the list</p>
   <ul class="list-unstyled">
   @foreach (var join in Model.JoinEngineerMachine)
@@ -34,5 +35,6 @@
     }
   </ul>
 }
-
-<p>@Html.ActionLink("Back to Machine List", "Index")</p>
+</div>
+<hr />
+<p class="btn btn-outline-secondary role="button">@Html.ActionLink("Back to Machine List", "Index")</p>
