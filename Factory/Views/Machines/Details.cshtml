@@ -24,10 +24,12 @@
         @Html.DisplayFor(model => model.MachineName)
       </td>
       <td>
+        <ul class="list-unstyled">
         @foreach (var join in Model.JoinEngineerMachine)
         {
           <li>@join.Engineer.EngineerName</li>
         }
+        </ul>
       </td>
       <td>
         @Html.ActionLink("Edit", "Edit", new { id = Model.MachineId }) |

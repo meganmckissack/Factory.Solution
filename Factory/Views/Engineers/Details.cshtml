@@ -15,7 +15,9 @@
       <th>
         Machine Licenses
       </th>
-      <th></th>
+      <th>
+        Edit or Delete
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -24,10 +26,12 @@
         @Html.DisplayFor(model => model.EngineerName)
       </td>
       <td>
+        <ul class="list-unstyled">
         @foreach (var join in Model.JoinEngineerMachine)
         {
           <li>@join.Machine.MachineName</li>
         }
+        </ul>
       </td>
       <td>
         @Html.ActionLink("Edit", "Edit", new { id = Model.EngineerId }) |
@@ -36,6 +40,6 @@
     </tr>
   </tbody>
 </table>
+<hr />
 
-
-<p>@Html.ActionLink("Back to Engineer List", "Index")</p>
+<p class="btn btn-outline-secondary btn-lg role="button">@Html.ActionLink("Back to Engineer List", "Index")</p>
